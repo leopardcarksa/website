@@ -707,7 +707,7 @@ p { margin: 0; }
 
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('[data-track]');
-    if (a && typeof window.gtag === 'function') window.gtag('event', 'lead_click', { method: a.getAttribute('data-track') });
+    if (a && typeof window.gtag === 'function') window.gtag('event', 'lead_' + a.getAttribute('data-track').replace(/-/g, '_'), { method: a.getAttribute('data-track') });
   });
 })();
 </script>
