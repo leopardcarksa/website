@@ -335,7 +335,7 @@ p { margin: 0; }
       <a class="btn btn-white" href="#book">احجز على واتساب</a>
       <a class="btn btn-outline" href="tel:+966563122358" data-track="call-svc-body">اتصل: <span class="num">056 312 2358</span></a>
     </div>
-    <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · من 9 ص</li></ul>
+    <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · 9 ص – 8 م</li></ul>
   </div></div>
 </section>
 
@@ -447,7 +447,6 @@ p { margin: 0; }
   var WA = 'https://wa.me/966563122358?text=';
   var DAYS = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   var OPEN = { Sat: 1, Sun: 1, Mon: 1, Tue: 1, Wed: 1, Thu: 1 };
-  var CLOSE = { Sat: 20.5, Sun: 20, Mon: 20, Tue: 20, Wed: 20, Thu: 20 };
   var NAMES = { Sat: 'السبت', Sun: 'الأحد', Mon: 'الاثنين', Tue: 'الثلاثاء', Wed: 'الأربعاء', Thu: 'الخميس' };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -468,8 +467,8 @@ p { margin: 0; }
   var now = riyadhNow();
   var status = document.getElementById('status');
   if (status) {
-    var isOpen = OPEN[now.day] && now.hour >= 9 && now.hour < CLOSE[now.day];
-    var text = isOpen ? '<strong>مفتوح الآن</strong> · يغلق الساعة ' + (CLOSE[now.day] === 20.5 ? '8:30 م' : '8 م')
+    var isOpen = OPEN[now.day] && now.hour >= 9 && now.hour < 20;
+    var text = isOpen ? '<strong>مفتوح الآن</strong> · يغلق الساعة 8 م'
       : (OPEN[now.day] && now.hour < 9) ? 'مغلق الآن · يفتح اليوم الساعة 9 ص'
       : 'مغلق الآن · ' + nextOpenLabel(now.day);
     status.classList.toggle('is-open', !!isOpen);
