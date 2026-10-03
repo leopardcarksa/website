@@ -120,6 +120,8 @@ p { margin: 0; }
 
 /* الأقسام */
 .section { padding-block: 84px; }
+.section.compact { padding-block: 56px; }
+@media (max-width: 760px) { .section { padding-block: 60px; } .section.compact { padding-block: 40px; } .head { margin-bottom: 30px; } }
 .tint { background: var(--mint); }
 .head { display: grid; gap: 12px; justify-items: center; text-align: center; margin-bottom: 44px; }
 .eyebrow { font-size: 14px; font-weight: 700; color: var(--green-dark); background: var(--green-soft); padding: 4px 14px; border-radius: 999px; }
@@ -139,7 +141,7 @@ p { margin: 0; }
 .service .more { font-weight: 700; font-size: 15px; color: var(--green-dark); text-decoration: none; justify-self: start; }
 .service .more:hover { color: var(--green); }
 @media (max-width: 980px) { .services { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 420px) { .services { gap: 12px; } .service { padding: 20px 16px; } .service h3 { font-size: 18px; } }
+@media (max-width: 600px) { .services { gap: 10px; } .service { padding: 16px 14px; gap: 8px; border-radius: 16px; } .service .ico { width: 44px; height: 44px; border-radius: 13px; } .service .ico svg { width: 23px; height: 23px; } .service h3 { font-size: 17px; } .service p { font-size: 13.5px; line-height: 1.65; } .service .more { font-size: 13.5px; } }
 
 /* احجز بضغطتين */
 .composer { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start; }
@@ -168,6 +170,7 @@ p { margin: 0; }
 .phone .send .btn { width: 100%; }
 .phone .note { font-size: 13px; color: #54656F; text-align: center; padding: 0 16px 18px; }
 @media (max-width: 880px) { .composer { grid-template-columns: 1fr; } .phone { position: static; } }
+@media (max-width: 600px) { .phone { border-width: 0; border-radius: 18px; box-shadow: var(--shadow); } .phone .bar, .phone .note { display: none; } .chat { min-height: 0; padding: 16px 12px 12px; } .phone .send { margin: 0 12px 12px; } }
 
 /* الورشة */
 .shop { display: grid; grid-template-columns: 1.3fr 1fr; gap: 44px; align-items: center; }
@@ -215,6 +218,13 @@ p { margin: 0; }
 .hours tr.off td:last-child { color: var(--ink-2); }
 .card .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
 .card .ctas .btn { flex: 1 1 190px; }
+.hours-lines { display: grid; gap: 8px; }
+.hours-lines p { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: var(--green-soft); color: var(--green-dark); font-weight: 600; }
+.hours-lines p.off { background: transparent; border: 1px solid var(--line); color: var(--ink-2); }
+.shop-line { color: var(--ink-2); }
+.visit-photos { display: grid; gap: 16px; }
+.visit-photos .photo:last-child::before { display: none; }
+@media (max-width: 880px) { .visit-photos { grid-template-columns: 1fr 1fr; gap: 10px; } .visit-photos .photo img { border-radius: 16px; aspect-ratio: 4 / 3; object-fit: cover; } .visit-photos .photo::before { display: none; } }
 @media (max-width: 880px) { .visit { grid-template-columns: 1fr; } }
 
 /* شركاء النجاح */
@@ -222,6 +232,7 @@ p { margin: 0; }
 .partner { flex: 0 1 460px; background: var(--white); border-radius: 24px; padding: clamp(24px, 4vw, 36px); display: grid; gap: 18px; justify-items: center; text-align: center; box-shadow: var(--shadow); text-decoration: none; border: 1px solid transparent; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .partner:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: var(--green-soft); }
 .partner img { width: min(300px, 100%); }
+@media (max-width: 760px) { .partner { padding: 20px; gap: 12px; } .partner img { width: min(220px, 100%); } }
 .partner p { color: var(--ink-2); font-size: 15px; }
 .partner .go { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--green-dark); background: var(--green-soft); padding: 8px 18px; border-radius: 12px; }
 
@@ -251,14 +262,18 @@ p { margin: 0; }
 .legal { border-top: 1px solid rgba(255, 255, 255, .14); padding-top: 18px; text-align: center; }
 .legal.rights { color: var(--white); }
 @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-grid > .foot-col:first-child { grid-column: 1 / -1; } }
-@media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } .links { grid-template-columns: 1fr 1fr; column-gap: 16px; } }
 
 /* زر واتساب العائم */
-.fab { position: fixed; z-index: 30; inset-inline-start: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: 62px; height: 62px; border-radius: 50%; background: linear-gradient(135deg, #25D366, var(--green-dark)); color: var(--white); display: none; place-items: center; box-shadow: 0 10px 26px rgba(0, 80, 40, .4); }
-.fab::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25D366; animation: pulse 2.2s ease-out infinite; }
-.fab svg { width: 30px; height: 30px; }
 @keyframes pulse { from { transform: scale(1); opacity: .8; } to { transform: scale(1.6); opacity: 0; } }
-@media (max-width: 760px) { .fab { display: grid; } }
+.dock { display: none; }
+@media (max-width: 760px) {
+  .dock { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 8px; position: fixed; z-index: 40; inset-inline: 0; bottom: 0; padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px)); background: rgba(255, 255, 255, .97); box-shadow: 0 -6px 22px rgba(4, 40, 30, .14); backdrop-filter: blur(8px); }
+  .dock a { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; color: var(--green-dark); background: var(--green-soft); }
+  .dock a.d-wa { color: var(--white); background: linear-gradient(135deg, #25D366, var(--green-dark)); }
+  .dock svg { width: 21px; height: 21px; flex: none; }
+  .site { padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+}
 
 /* الظهور عند التمرير: الحالة الأصلية ظاهرة، والحركة تُضاف فقط للعناصر خارج الشاشة */
 .js .reveal.pending { opacity: .45; transform: translateY(26px); }
@@ -268,7 +283,6 @@ p { margin: 0; }
   .rise, .billboard img, .bubble { animation: none; }
   .track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
   .track span[aria-hidden] { display: none; }
-  .fab::before { animation: none; display: none; }
   .btn, .service, .partner, .chip span, .service .ico, .faq summary::after { transition: none; }
   .btn:hover, .service:hover, .partner:hover { transform: none; }
   .btn::after { display: none; }
@@ -336,7 +350,7 @@ p { margin: 0; }
 <section class="section tint" aria-labelledby="svc-title">
   <div class="wrap">
     <div class="head reveal"><span class="eyebrow">خدماتنا</span><h2 id="svc-title">خدماتنا لسيارات جاك</h2></div>
-    <div class="services"><article class="service reveal"><h3>فحص كمبيوتر</h3><p>تشخيص الأعطال بجهاز الفحص وقراءة أكواد الأعطال.</p><a class="more" href="/computer-programming/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>برمجة وتعديل</h3><p>برمجة أنظمة السيارة الإلكترونية وتعديلها.</p><a class="more" href="/computer-programming/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>كهرباء السيارات</h3><p>فحص وإصلاح أعطال كهرباء السيارة.</p><a class="more" href="/auto-electrical/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>ميكانيكا</h3><p>الفرامل والتعليق والمكيف، وتغيير الزيت والفلاتر.</p></article><article class="service reveal"><h3>ناقل الحركة</h3><p>صيانة وإصلاح القير.</p></article><article class="service reveal"><h3>المكائن</h3><p>صيانة وإصلاح المكائن.</p></article><article class="service reveal"><h3>سمكرة ودهان</h3><p>إصلاح هيكل السيارة ودهانه.</p><a class="more" href="/body-paint/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>قطع الغيار</h3><p>نوفّر قطع الغيار، ونركّب القطع التي يحضرها العميل.</p></article></div>
+    <div class="services"><article class="service reveal"><h3>فحص كمبيوتر</h3><p>تشخيص الأعطال بجهاز الفحص وقراءة أكواد الأعطال.</p><a class="more" href="/computer-programming/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>برمجة وتعديل</h3><p>برمجة أنظمة السيارة الإلكترونية وتعديلها.</p><a class="more" href="/computer-programming/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>كهرباء السيارات</h3><p>فحص وإصلاح أعطال كهرباء السيارة.</p><a class="more" href="/auto-electrical/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>ميكانيكا</h3><p>الفرامل والتعليق والمكيف، وتغيير الزيت والفلاتر.</p></article><article class="service reveal"><h3>ناقل الحركة</h3><p>صيانة وإصلاح القير.</p><a class="more" href="/gearbox-engine/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>المكائن</h3><p>صيانة وإصلاح المكائن.</p><a class="more" href="/gearbox-engine/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>سمكرة ودهان</h3><p>إصلاح هيكل السيارة ودهانه.</p><a class="more" href="/body-paint/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>قطع الغيار</h3><p>نوفّر قطع الغيار، ونركّب القطع التي يحضرها العميل.</p></article></div>
   </div>
 </section>
 
@@ -372,7 +386,7 @@ p { margin: 0; }
   <div class="wrap"><div class="head reveal"><h2>ماركات أخرى نخدمها</h2></div>
     <div class="other"><a href="/changan/">صيانة شانجان</a><a href="/geely/">صيانة جيلي</a><a href="/mg/">صيانة MG</a><a href="/chery/">صيانة شيري</a><a href="/jetour/">صيانة جيتور</a><a href="/faw/">صيانة فاو</a></div>
     <div class="head reveal" style="margin-top:36px"><h2>خدمات متخصصة</h2></div>
-    <div class="other"><a href="/computer-programming/">فحص كمبيوتر وبرمجة السيارات</a><a href="/auto-electrical/">كهربائي سيارات</a><a href="/body-paint/">سمكرة ودهان السيارات</a><a href="/">جميع خدمات المركز</a></div></div>
+    <div class="other"><a href="/computer-programming/">فحص كمبيوتر وبرمجة السيارات</a><a href="/auto-electrical/">كهربائي سيارات</a><a href="/gearbox-engine/">صيانة القير والمكينة</a><a href="/body-paint/">سمكرة ودهان السيارات</a><a href="/">جميع خدمات المركز</a></div></div>
 </section>
 </main>
 <footer class="foot">
@@ -396,6 +410,7 @@ p { margin: 0; }
           <li><a href="/computer-programming/">فحص كمبيوتر وبرمجة</a></li>
           <li><a href="/auto-electrical/">كهربائي سيارات</a></li>
           <li><a href="/body-paint/">سمكرة ودهان</a></li>
+          <li><a href="/gearbox-engine/">القير والمكينة</a></li>
           <li><a href="/#book">احجز موعدك</a></li>
           <li><a href="/#faq-title">الأسئلة الشائعة</a></li>
           <li><a href="/#visit">موقع المركز</a></li>
@@ -411,9 +426,11 @@ p { margin: 0; }
     <p class="legal rights">© <span class="num" id="year">2026</span> شركة ليوبارد كار لصيانة السيارات. جميع الحقوق محفوظة.</p>
   </div>
 </footer>
-<a class="fab" href="#book" aria-label="احجز على واتساب">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
+<nav class="dock" aria-label="تواصل سريع">
+  <a class="d-wa" href="https://wa.me/966563122358?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%B3%D9%8A%D8%A7%D8%B1%D8%AA%D9%8A.%0A%28%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D9%84%D9%8A%D9%88%D8%A8%D8%A7%D8%B1%D8%AF%20%D9%83%D8%A7%D8%B1%29" target="_blank" rel="noopener" data-track="wa-dock"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>واتساب</span></a>
+  <a href="tel:+966563122358" data-track="call-dock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span>اتصال</span></a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=16.8367911,42.6204328" target="_blank" rel="noopener" data-track="directions-dock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>الاتجاهات</span></a>
+</nav>
 </div>
 <script>
 (function () {
