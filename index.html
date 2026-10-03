@@ -26,7 +26,7 @@
 <title>مركز صيانة السيارات الصينية في المنطقة الصناعية بجيزان | ليوبارد كار</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap"></noscript>
 <style>
 :root {
   color-scheme: light;
@@ -285,7 +285,7 @@ p { margin: 0; }
 }
 
 /* الظهور عند التمرير: الحالة الأصلية ظاهرة، والحركة تُضاف فقط للعناصر خارج الشاشة */
-.js .reveal.pending { opacity: .45; transform: translateY(26px); }
+.js .reveal.pending { transform: translateY(26px); }
 .js .reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -306,7 +306,7 @@ p { margin: 0; }
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="ليوبارد كار، الرئيسية">
-      <img src="assets/logo.webp" alt="" width="160" height="146">
+      <img src="assets/logo-96.webp" alt="" width="160" height="146">
       <span>ليوبارد <b>كار</b></span>
     </a>
     <nav class="nav" aria-label="أقسام الصفحة">
@@ -423,8 +423,8 @@ p { margin: 0; }
     </div>
     <div class="visit">
       <div class="visit-photos reveal">
-        <figure class="photo"><img src="assets/facade-day.webp" width="1200" height="675" loading="lazy" alt="واجهة مبنى شركة ليوبارد كار لصيانة السيارات نهاراً"></figure>
-        <figure class="photo"><img src="assets/lifts-1.webp" width="1200" height="675" loading="lazy" alt="أربع رافعات زرقاء داخل ورشة ليوبارد كار على أرضية رمادية جديدة"></figure>
+        <figure class="photo"><img src="assets/facade-day-600.webp" srcset="assets/facade-day-600.webp 600w, assets/facade-day.webp 1200w" sizes="(max-width: 880px) 50vw, 560px" width="1200" height="675" loading="lazy" alt="واجهة مبنى شركة ليوبارد كار لصيانة السيارات نهاراً"></figure>
+        <figure class="photo"><img src="assets/lifts-1-600.webp" srcset="assets/lifts-1-600.webp 600w, assets/lifts-1.webp 1200w" sizes="(max-width: 880px) 50vw, 560px" width="1200" height="675" loading="lazy" alt="أربع رافعات زرقاء داخل ورشة ليوبارد كار على أرضية رمادية جديدة"></figure>
       </div>
       <div class="card reveal">
         <h3>شركة ليوبارد كار لصيانة السيارات</h3>
@@ -487,7 +487,7 @@ p { margin: 0; }
       </div>
       <div class="phone" aria-live="polite">
         <div class="bar">
-          <img src="assets/logo.webp" alt="" width="160" height="146">
+          <img src="assets/logo-96.webp" alt="" width="160" height="146">
           <div><b>ليوبارد كار</b><small class="num">+966 56 312 2358</small></div>
         </div>
         <div class="chat">
@@ -583,7 +583,7 @@ p { margin: 0; }
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col">
-        <a class="brand" href="#top"><img src="assets/logo.webp" alt="" width="160" height="146"><span>ليوبارد <b>كار</b></span></a>
+        <a class="brand" href="#top"><img src="assets/logo-96.webp" alt="" width="160" height="146"><span>ليوبارد <b>كار</b></span></a>
         <p class="about">مركز صيانة السيارات الصينية في المنطقة الصناعية بجيزان، منطقة جازان. ونخدم جميع السيارات.</p>
         <ul class="social" aria-label="حساباتنا">
           <li><a href="https://www.snapchat.com/add/lpc_sa" target="_blank" rel="noopener" aria-label="سناب شات"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5c2.8 0 4.7 2 4.7 4.8v2.1l1.5-.5c.6 0 .9.7.4 1.1-.6.5-1.7.8-1.9 1.3.6 1.5 1.9 2.8 3.5 3.2-.2.7-1.3.9-2.3 1-.2.4-.2 1-.6 1.1-.6.1-1.4-.3-2.3.1-.9.4-1.7 1.3-3 1.3s-2.1-.9-3-1.3c-.9-.4-1.7 0-2.3-.1-.4-.1-.4-.7-.6-1.1-1-.1-2.1-.3-2.3-1 1.6-.4 2.9-1.7 3.5-3.2-.2-.5-1.3-.8-1.9-1.3-.5-.4-.2-1.1.4-1.1l1.5.5V8.3c0-2.8 1.9-4.8 4.7-4.8z"/></svg></a></li>
