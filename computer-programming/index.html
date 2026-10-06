@@ -537,7 +537,13 @@ p { margin: 0; }
 
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('[data-track]');
-    if (a && typeof window.gtag === 'function') window.gtag('event', 'lead_' + a.getAttribute('data-track').replace(/-/g, '_'), { method: a.getAttribute('data-track') });
+    if (a && typeof window.gtag === 'function') {
+      var t = a.getAttribute('data-track');
+      window.gtag('event', 'lead_' + t.replace(/-/g, '_'), { method: t });
+      // أحداث موحّدة تُعلَّم «أحداثاً رئيسية» في GA4 وتُستورد لإعلانات قوقل
+      var k = t.indexOf('wa-') === 0 ? 'whatsapp_click' : t.indexOf('call-') === 0 ? 'phone_call_click' : t.indexOf('directions') === 0 ? 'directions_click' : '';
+      if (k) window.gtag('event', k, { button: t, page_path: location.pathname });
+    }
   });
 })();
 </script>
