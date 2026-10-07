@@ -362,10 +362,12 @@ p { margin: 0; }
       <p>اختر موديل سيارتك والخدمة المطلوبة، وستُفتح لك رسالة واتساب جاهزة للإرسال.</p></div>
     <form class="composer" id="composer" novalidate>
       <div class="form-card">
+        <fieldset><legend>نوع الطلب</legend><div class="chips"><label class="chip"><input type="radio" name="need" id="n-service" value="service" checked><span>صيانة وإصلاح</span></label><label class="chip"><input type="radio" name="need" id="n-inspect" value="inspect"><span>فحص السيارة</span></label><label class="chip"><input type="radio" name="need" id="n-parts" value="parts"><span>قطع غيار</span></label></div></fieldset>
         <fieldset><legend>الموديل</legend><div class="chips"><label class="chip"><input type="radio" name="brand" id="m-0" value="شانجان CS35 Plus" checked><span>CS35 Plus</span></label><label class="chip"><input type="radio" name="brand" id="m-1" value="شانجان CS75 Plus"><span>CS75 Plus</span></label><label class="chip"><input type="radio" name="brand" id="m-2" value="شانجان UNI-K"><span>UNI-K</span></label><label class="chip"><input type="radio" name="brand" id="m-3" value="شانجان ALSVIN"><span>ALSVIN</span></label><label class="chip"><input type="radio" name="brand" id="m-4" value="شانجان EADO Plus"><span>EADO Plus</span></label><label class="chip"><input type="radio" name="brand" id="m-5" value="شانجان CS95"><span>CS95</span></label><label class="chip"><input type="radio" name="brand" id="m-6" value="شانجان UNI-T"><span>UNI-T</span></label><label class="chip"><input type="radio" name="brand" id="m-7" value="شانجان UNI-V"><span>UNI-V</span></label><label class="chip"><input type="radio" name="brand" id="m-8" value="شانجان UNI-S"><span>UNI-S</span></label><label class="chip"><input type="radio" name="brand" id="m-9" value="شانجان Hunter"><span>Hunter</span></label><label class="chip"><input type="radio" name="brand" id="m-other" value="شانجان"><span>موديل آخر</span></label></div></fieldset>
-        <fieldset><legend>الخدمة</legend><div class="chips"><label class="chip"><input type="radio" name="service" id="s-0" value="فحص كمبيوتر" checked><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="service" id="s-1" value="تغيير زيت وفلاتر"><span>تغيير زيت وفلاتر</span></label><label class="chip"><input type="radio" name="service" id="s-2" value="فرامل وتعليق"><span>فرامل وتعليق</span></label><label class="chip"><input type="radio" name="service" id="s-3" value="صيانة المكيف"><span>صيانة المكيف</span></label><label class="chip"><input type="radio" name="service" id="s-4" value="كهرباء"><span>كهرباء</span></label><label class="chip"><input type="radio" name="service" id="s-5" value="برمجة أو تعديل"><span>برمجة أو تعديل</span></label><label class="chip"><input type="radio" name="service" id="s-6" value="القير"><span>القير</span></label><label class="chip"><input type="radio" name="service" id="s-7" value="المكينة"><span>المكينة</span></label><label class="chip"><input type="radio" name="service" id="s-8" value="سمكرة ودهان"><span>سمكرة ودهان</span></label><label class="chip"><input type="radio" name="service" id="s-9" value="قطعة غيار"><span>قطعة غيار</span></label><label class="chip"><input type="radio" name="service" id="s-10" value="جهاز الهزاز"><span>جهاز الهزاز</span></label><label class="chip"><input type="radio" name="service" id="s-unknown" value="لا أعرف سبب العطل"><span>لا أعرف سبب العطل</span></label></div></fieldset>
+        <fieldset id="svc-set"><legend>الخدمة</legend><div class="chips"><label class="chip"><input type="radio" name="service" id="s-0" value="فحص كمبيوتر" checked><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="service" id="s-1" value="تغيير زيت وفلاتر"><span>تغيير زيت وفلاتر</span></label><label class="chip"><input type="radio" name="service" id="s-2" value="فرامل وتعليق"><span>فرامل وتعليق</span></label><label class="chip"><input type="radio" name="service" id="s-3" value="صيانة المكيف"><span>صيانة المكيف</span></label><label class="chip"><input type="radio" name="service" id="s-4" value="كهرباء"><span>كهرباء</span></label><label class="chip"><input type="radio" name="service" id="s-5" value="برمجة أو تعديل"><span>برمجة أو تعديل</span></label><label class="chip"><input type="radio" name="service" id="s-6" value="القير"><span>القير</span></label><label class="chip"><input type="radio" name="service" id="s-7" value="المكينة"><span>المكينة</span></label><label class="chip"><input type="radio" name="service" id="s-8" value="سمكرة ودهان"><span>سمكرة ودهان</span></label><label class="chip"><input type="radio" name="service" id="s-9" value="جهاز الهزاز"><span>جهاز الهزاز</span></label><label class="chip"><input type="radio" name="service" id="s-unknown" value="لا أعرف سبب العطل"><span>لا أعرف سبب العطل</span></label></div></fieldset>
         <label class="lbl" for="model">سنة الصنع <span style="font-weight:400;color:var(--ink-2)">(اختياري)</span></label>
         <input class="field" id="model" name="model" type="text" maxlength="40" placeholder="مثلاً: 2023" autocomplete="off">
+        <div id="part-set" hidden><label class="lbl" for="part">اسم القطعة <span style="font-weight:400;color:var(--ink-2)">(اختياري)</span></label><input class="field" id="part" name="part" type="text" maxlength="60" placeholder="مثلاً: فحمات أمامية" autocomplete="off"></div>
       </div>
       <div class="phone" aria-live="polite">
         <div class="bar"><img src="/assets/logo-96.webp" alt="" width="160" height="146"><div><b>ليوبارد كار</b><small class="num">+966 56 312 2358</small></div></div>
@@ -473,19 +475,37 @@ p { margin: 0; }
   var form = document.getElementById('composer');
   var bubble = document.getElementById('bubble');
   var send = document.getElementById('send');
+  var PARTS_WA = 'https://wa.me/966536790096?text=';
+  var svcSet = document.getElementById('svc-set'), partSet = document.getElementById('part-set');
+  var bar = form ? form.querySelector('.phone .bar') : null;
+  var baseTrack = send ? send.getAttribute('data-track') : '';
   function compose() {
     var brand = form.querySelector('input[name="brand"]:checked');
     var service = form.querySelector('input[name="service"]:checked');
+    var need = form.querySelector('input[name="need"]:checked');
+    var mode = need ? need.value : 'service';
     var model = document.getElementById('model').value.trim();
+    var partEl = document.getElementById('part'), part = partEl ? partEl.value.trim() : '';
     var car = 'سيارة ' + (brand ? brand.value : '') + (model ? ' ' + model : '');
-    var msg = service && service.id === 's-unknown'
+    if (svcSet) svcSet.hidden = mode !== 'service';
+    if (partSet) partSet.hidden = mode !== 'parts';
+    var msg;
+    if (mode === 'parts') msg = 'السلام عليكم، أبحث عن قطعة غيار ل' + car + (part ? ': ' + part : '') + '.';
+    else if (mode === 'inspect') msg = 'السلام عليكم، لدي ' + car + ' وأرغب في فحصها.';
+    else msg = service && service.id === 's-unknown'
       ? 'السلام عليكم، لدي ' + car + ' بها عطل لا أعرف سببه، وأرغب في فحصها.'
       : 'السلام عليكم، لدي ' + car + ' وأرغب في: ' + (service ? service.value : 'الاستفسار') + '.';
     if (bubble.textContent !== msg) {
       bubble.textContent = msg;
       bubble.style.animation = 'none'; void bubble.offsetWidth; bubble.style.animation = '';
     }
-    send.href = WA + encodeURIComponent(msg + '\n(من موقع ليوبارد كار)');
+    var isParts = mode === 'parts';
+    send.href = (isParts ? PARTS_WA : WA) + encodeURIComponent(msg + '\n(من موقع ليوبارد كار)');
+    send.setAttribute('data-track', isParts ? 'parts-composer' : baseTrack);
+    if (bar) {
+      bar.querySelector('b').textContent = isParts ? 'أوتوكور لقطع الغيار' : 'ليوبارد كار';
+      bar.querySelector('small').textContent = isParts ? '+966 53 679 0096' : '+966 56 312 2358';
+    }
   }
   if (form) {
     form.addEventListener('change', compose);
@@ -532,7 +552,7 @@ p { margin: 0; }
       var t = a.getAttribute('data-track');
       window.gtag('event', 'lead_' + t.replace(/-/g, '_'), { method: t });
       // أحداث موحّدة تُعلَّم «أحداثاً رئيسية» في GA4 وتُستورد لإعلانات قوقل
-      var k = t.indexOf('wa-') === 0 ? 'whatsapp_click' : t.indexOf('call-') === 0 ? 'phone_call_click' : t.indexOf('directions') === 0 ? 'directions_click' : '';
+      var k = t.indexOf('wa-') === 0 ? 'whatsapp_click' : t.indexOf('call-') === 0 ? 'phone_call_click' : t.indexOf('directions') === 0 ? 'directions_click' : t.indexOf('parts-') === 0 ? 'parts_whatsapp_click' : '';
       if (k) window.gtag('event', k, { button: t, page_path: location.pathname });
     }
   });
