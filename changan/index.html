@@ -78,6 +78,8 @@ p { margin: 0; }
 .promo-item { display: inline-flex; align-items: center; gap: 6px; padding-block: 7px; white-space: nowrap; }
 .promo-item b { color: var(--glow); font-weight: 700; }
 .promo-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--glow); opacity: .75; margin-inline: 16px; }
+section[id] { scroll-margin-top: var(--anchor-offset, 160px); }
+h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .site .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand img { width: 42px; }
@@ -406,7 +408,7 @@ p { margin: 0; }
         </div>
         <fieldset class="step">
           <legend class="step-h"><span class="step-n">2</span>الخدمة المطلوبة</legend>
-          <div class="chips opts"><label class="chip"><input type="radio" name="opt" id="o-0" value="جهاز الهزاز" data-svc="فحص الأصوات بجهاز الهزاز (49 ريالاً)" data-detail="" checked><span>جهاز الهزاز</span></label><label class="chip"><input type="radio" name="opt" id="o-1" value="فحص كمبيوتر" data-svc="فحص كمبيوتر السيارة" data-detail=""><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="opt" id="o-2" value="المكينة" data-svc="صيانة المكينة" data-detail=""><span>المكينة</span></label><label class="chip"><input type="radio" name="opt" id="o-3" value="القير" data-svc="صيانة القير" data-detail=""><span>القير</span></label><label class="chip"><input type="radio" name="opt" id="o-4" value="كهرباء" data-svc="إصلاح كهرباء السيارة" data-detail=""><span>كهرباء</span></label><label class="chip"><input type="radio" name="opt" id="o-5" value="برمجة" data-svc="برمجة السيارة" data-detail=""><span>برمجة</span></label><label class="chip"><input type="radio" name="opt" id="o-6" value="زيت وفلاتر" data-svc="تغيير الزيت والفلاتر" data-detail=""><span>زيت وفلاتر</span></label><label class="chip"><input type="radio" name="opt" id="o-7" value="فرامل وتعليق" data-svc="صيانة الفرامل ونظام التعليق" data-detail=""><span>فرامل وتعليق</span></label><label class="chip"><input type="radio" name="opt" id="o-8" value="المكيف" data-svc="صيانة مكيف السيارة" data-detail=""><span>المكيف</span></label><label class="chip"><input type="radio" name="opt" id="o-9" value="سمكرة ودهان" data-svc="سمكرة ودهان السيارة" data-detail=""><span>سمكرة ودهان</span></label><label class="chip"><input type="radio" name="opt" id="o-10" value="لا أعرف السبب" data-svc="" data-detail="" data-kind="unknown"><span>لا أعرف السبب</span></label></div>
+          <div class="chips opts"><label class="chip"><input type="radio" name="opt" id="o-0" value="جهاز الهزاز" data-svc="فحص الأصوات بجهاز الهزاز (49 ريالاً)" data-detail=""><span>جهاز الهزاز</span></label><label class="chip"><input type="radio" name="opt" id="o-1" value="فحص كمبيوتر" data-svc="فحص كمبيوتر السيارة" data-detail=""><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="opt" id="o-2" value="المكينة" data-svc="صيانة المكينة" data-detail=""><span>المكينة</span></label><label class="chip"><input type="radio" name="opt" id="o-3" value="القير" data-svc="صيانة القير" data-detail=""><span>القير</span></label><label class="chip"><input type="radio" name="opt" id="o-4" value="كهرباء" data-svc="إصلاح كهرباء السيارة" data-detail=""><span>كهرباء</span></label><label class="chip"><input type="radio" name="opt" id="o-5" value="برمجة" data-svc="برمجة السيارة" data-detail=""><span>برمجة</span></label><label class="chip"><input type="radio" name="opt" id="o-6" value="زيت وفلاتر" data-svc="تغيير الزيت والفلاتر" data-detail=""><span>زيت وفلاتر</span></label><label class="chip"><input type="radio" name="opt" id="o-7" value="فرامل وتعليق" data-svc="صيانة الفرامل ونظام التعليق" data-detail=""><span>فرامل وتعليق</span></label><label class="chip"><input type="radio" name="opt" id="o-8" value="المكيف" data-svc="صيانة مكيف السيارة" data-detail=""><span>المكيف</span></label><label class="chip"><input type="radio" name="opt" id="o-9" value="سمكرة ودهان" data-svc="سمكرة ودهان السيارة" data-detail=""><span>سمكرة ودهان</span></label><label class="chip"><input type="radio" name="opt" id="o-10" value="لا أعرف السبب" data-svc="" data-detail="" data-kind="unknown"><span>لا أعرف السبب</span></label></div>
         </fieldset>
         <fieldset class="step">
           <legend class="step-h"><span class="step-n">3</span>الموعد المفضل <small>(اختياري)</small></legend>
@@ -416,7 +418,7 @@ p { margin: 0; }
       <div class="phone" aria-live="polite">
         <div class="bar"><img src="/assets/logo-96.webp" alt="" width="160" height="146"><div><b>ليوبارد كار</b><small class="num">+966 56 312 2358</small></div></div>
         <div class="chat"><p class="bubble" id="bubble">السلام عليكم،
-أرغب في زيارة المركز لفحص الأصوات بجهاز الهزاز (49 ريالاً) لسيارتي شانجان.
+أرغب في زيارة المركز لصيانة سيارتي شانجان.
 أرجو إفادتي بأقرب موعد متاح.</p></div>
         <div class="send"><a class="btn btn-green" id="send" href="https://wa.me/966563122358" target="_blank" rel="noopener" data-track="wa-brand-changan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"/></svg>أرسل على واتساب</a></div>
         <p class="note">السبت – الخميس، 9 ص – 8 م · المنطقة الصناعية بجيزان</p>
@@ -546,6 +548,25 @@ p { margin: 0; }
   var today = document.querySelector('.hours tr[data-day="' + now.day + '"]');
   if (today) today.classList.add('today');
 
+  // ارتفاع القائمة الثابتة مع الشريط، ليظهر عنوان القسم كاملاً عند فتح رابط مثل /#visit
+  var topBar = document.querySelector('.top');
+  function setAnchorOffset() {
+    if (topBar) document.documentElement.style.setProperty('--anchor-offset', Math.ceil(topBar.getBoundingClientRect().height) + 16 + 'px');
+  }
+  setAnchorOffset();
+  window.addEventListener('resize', setAnchorOffset);
+  // عند فتح رابط بمرساة (مثل /#visit): الخطوط والصور تغيّر الارتفاع بعد التمرير الأول، فنعيد التمرير للقسم ما لم يحرّك الزائر الصفحة
+  var anchorEl = location.hash.length > 1 ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+  if (anchorEl) {
+    var userMoved = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+      window.addEventListener(ev, function () { userMoved = true; }, { once: true, passive: true });
+    });
+    var reAnchor = function () { if (!userMoved) anchorEl.scrollIntoView({ block: 'start' }); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(reAnchor);
+    window.addEventListener('load', reAnchor);
+  }
+
   var form = document.getElementById('composer');
   var bubble = document.getElementById('bubble');
   var send = document.getElementById('send');
@@ -555,9 +576,11 @@ p { margin: 0; }
     var when = form.querySelector('input[name="when"]:checked');
     var carEl = document.getElementById('car'), car = carEl ? carEl.value.trim() : '';
     var mine = 'سيارتي' + (car ? ' ' + car : '');
+    // بلا اختيار: خدمة الصفحة البديلة (data-fallback)، وإلا «لصيانة سيارتي»
+    var svc = opt ? opt.getAttribute('data-svc') : (form.getAttribute('data-fallback') || '');
     var first = opt && opt.getAttribute('data-kind') === 'unknown'
       ? 'في ' + mine + ' عطل لا أعرف سببه، وأرغب في زيارة المركز لفحصها وتحديد السبب.'
-      : 'أرغب في زيارة المركز ل' + (opt ? opt.getAttribute('data-svc') : 'فحص السيارة') + ' ل' + mine + '.';
+      : svc ? 'أرغب في زيارة المركز ل' + svc + ' ل' + mine + '.' : 'أرغب في زيارة المركز لصيانة ' + mine + '.';
     var details = [];
     if (opt && opt.getAttribute('data-detail')) details.push(opt.getAttribute('data-detail'));
     if (when) details.push('الموعد المفضل: ' + when.value);

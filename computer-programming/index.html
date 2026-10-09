@@ -78,6 +78,8 @@ p { margin: 0; }
 .promo-item { display: inline-flex; align-items: center; gap: 6px; padding-block: 7px; white-space: nowrap; }
 .promo-item b { color: var(--glow); font-weight: 700; }
 .promo-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--glow); opacity: .75; margin-inline: 16px; }
+section[id] { scroll-margin-top: var(--anchor-offset, 160px); }
+h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .site .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand img { width: 42px; }
@@ -407,7 +409,7 @@ p { margin: 0; }
       <h2 id="book-title">احجز موعد فحص الكمبيوتر أو البرمجة</h2>
       <p>اكتب نوع سيارتك واختر الخدمة، وستُفتح لك رسالة واتساب جاهزة للإرسال إلى المركز.</p>
     </div>
-    <form class="composer" id="composer" novalidate>
+    <form class="composer" id="composer" novalidate data-fallback="فحص السيارة">
       <div class="form-card">
         <div class="step">
           <label class="step-h" for="car"><span class="step-n">1</span>نوع سيارتك وموديلها <small>(اختياري)</small></label>
@@ -555,6 +557,25 @@ p { margin: 0; }
   var today = document.querySelector('.hours tr[data-day="' + now.day + '"]');
   if (today) today.classList.add('today');
 
+  // ارتفاع القائمة الثابتة مع الشريط، ليظهر عنوان القسم كاملاً عند فتح رابط مثل /#visit
+  var topBar = document.querySelector('.top');
+  function setAnchorOffset() {
+    if (topBar) document.documentElement.style.setProperty('--anchor-offset', Math.ceil(topBar.getBoundingClientRect().height) + 16 + 'px');
+  }
+  setAnchorOffset();
+  window.addEventListener('resize', setAnchorOffset);
+  // عند فتح رابط بمرساة (مثل /#visit): الخطوط والصور تغيّر الارتفاع بعد التمرير الأول، فنعيد التمرير للقسم ما لم يحرّك الزائر الصفحة
+  var anchorEl = location.hash.length > 1 ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+  if (anchorEl) {
+    var userMoved = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+      window.addEventListener(ev, function () { userMoved = true; }, { once: true, passive: true });
+    });
+    var reAnchor = function () { if (!userMoved) anchorEl.scrollIntoView({ block: 'start' }); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(reAnchor);
+    window.addEventListener('load', reAnchor);
+  }
+
   var form = document.getElementById('composer');
   var bubble = document.getElementById('bubble');
   var send = document.getElementById('send');
@@ -564,9 +585,11 @@ p { margin: 0; }
     var when = form.querySelector('input[name="when"]:checked');
     var carEl = document.getElementById('car'), car = carEl ? carEl.value.trim() : '';
     var mine = 'سيارتي' + (car ? ' ' + car : '');
+    // بلا اختيار: خدمة الصفحة البديلة (data-fallback)، وإلا «لصيانة سيارتي»
+    var svc = opt ? opt.getAttribute('data-svc') : (form.getAttribute('data-fallback') || '');
     var first = opt && opt.getAttribute('data-kind') === 'unknown'
       ? 'في ' + mine + ' عطل لا أعرف سببه، وأرغب في زيارة المركز لفحصها وتحديد السبب.'
-      : 'أرغب في زيارة المركز ل' + (opt ? opt.getAttribute('data-svc') : 'فحص السيارة') + ' ل' + mine + '.';
+      : svc ? 'أرغب في زيارة المركز ل' + svc + ' ل' + mine + '.' : 'أرغب في زيارة المركز لصيانة ' + mine + '.';
     var details = [];
     if (opt && opt.getAttribute('data-detail')) details.push(opt.getAttribute('data-detail'));
     if (when) details.push('الموعد المفضل: ' + when.value);
