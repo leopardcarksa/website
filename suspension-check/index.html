@@ -69,6 +69,13 @@ p { margin: 0; }
 
 /* الشريط العلوي */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255, 255, 255, .92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.promo { display: block; overflow: hidden; background: var(--green-deep); color: var(--white); text-decoration: none; font-size: 14px; font-weight: 600; }
+.promo-track { display: flex; width: max-content; animation: slide 45s linear infinite; }
+.promo:hover .promo-track, .promo:focus-visible .promo-track { animation-play-state: paused; }
+.promo-item { display: inline-flex; align-items: center; gap: 6px; padding-block: 7px; white-space: nowrap; }
+.promo-item b { color: var(--glow); font-weight: 700; }
+.promo-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--glow); opacity: .75; margin-inline: 16px; }
+@media (prefers-reduced-motion: reduce) { .promo-track { animation: none; width: auto; justify-content: center; } .promo-item + .promo-item { display: none; } .promo-item i:last-child { display: none; } }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .site .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand img { width: 42px; }
@@ -311,10 +318,15 @@ p { margin: 0; }
 .when li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex: none; }
 .steps { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; counter-reset: s; }
 .steps li { background: var(--white); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); counter-increment: s; display: grid; gap: 8px; }
-.svc-photo { margin: 0; justify-self: center; width: min(100%, 420px); }
-.svc-photo img { width: 100%; height: auto; border-radius: 22px; box-shadow: 0 30px 60px rgba(0, 20, 10, .45); }
-.svc-photo figcaption { color: rgba(255, 255, 255, .7); font-size: 13px; text-align: center; padding-top: 10px; }
-@media (max-width: 900px) { .svc-photo { width: min(100%, 340px); } }
+.duo { position: relative; margin: 0; justify-self: center; width: min(100%, 560px); }
+.duo::before { content: ""; position: absolute; inset: 6% 4% 8%; border-radius: 50%; background: radial-gradient(closest-side, rgba(2, 223, 130, .26), transparent); filter: blur(12px); }
+.duo img { position: relative; width: 100%; height: auto; }
+.duo-badge { position: absolute; top: -3%; inset-inline-end: 1%; width: 116px; aspect-ratio: 1; border-radius: 50%; background: var(--glow); color: var(--green-deep); display: grid; place-content: center; text-align: center; line-height: 1.1; box-shadow: 0 16px 36px rgba(0, 0, 0, .32), 0 0 0 6px rgba(2, 223, 130, .18); transform: rotate(-8deg); }
+.duo-badge small { font-size: 13px; font-weight: 700; }
+.duo-badge b { font-family: var(--display); font-size: 42px; font-weight: 800; line-height: 1; }
+.duo-badge span { font-size: 14px; font-weight: 700; }
+.duo figcaption { position: relative; color: rgba(255, 255, 255, .7); font-size: 13px; text-align: center; padding-top: 4px; }
+@media (max-width: 900px) { .duo { width: min(100%, 440px); } .duo-badge { width: 92px; } .duo-badge b { font-size: 34px; } .duo-badge small { font-size: 11px; } }
 .steps li::before { content: counter(s); width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%); color: #fff; font-weight: 700; }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 </style>
@@ -323,6 +335,7 @@ p { margin: 0; }
 <body>
 <div class="site" dir="rtl" lang="ar">
 <header class="top">
+  <a class="promo" href="/suspension-check/" data-track="promo-bar" aria-label="عرض جهاز الهزاز: فحص أصوات السيارة بـ49 ريالاً"><span class="promo-track"><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span></span></a>
   <div class="wrap">
     <a class="brand" href="/#top" aria-label="ليوبارد كار، الرئيسية">
       <img src="/assets/logo-96.webp" alt="" width="160" height="146">
@@ -349,7 +362,7 @@ p { margin: 0; }
       <a class="btn btn-outline" href="tel:+966563122358" data-track="call-svc-shaker">اتصل: <span class="num">056 312 2358</span></a>
     </div>
     <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · 9 ص – 8 م</li></ul>
-  </div><figure class="svc-photo rise d2"><img src="/assets/shaker-device-800.webp" srcset="/assets/shaker-device-480.webp 480w, /assets/shaker-device-800.webp 800w" sizes="(max-width: 900px) 90vw, 420px" width="800" height="960" fetchpriority="high" alt="جهاز الهزاز لفحص أصوات السيارة في ليوبارد كار بجيزان"><figcaption>جهاز الهزاز في ورشة ليوبارد كار</figcaption></figure></div>
+  </div><figure class="duo rise d2"><img src="/assets/shaker-duo-1000.webp" srcset="/assets/shaker-duo-600.webp 600w, /assets/shaker-duo-1000.webp 1000w" sizes="(max-width: 900px) 92vw, 560px" width="1000" height="729" fetchpriority="high" alt="جهازا الهزاز لفحص أصوات السيارة في ورشة ليوبارد كار بجيزان"><div class="duo-badge" aria-hidden="true"><small>عرض الفحص</small><b>49</b><span>ريالاً</span></div><figcaption>جهازا الهزاز في ورشة ليوبارد كار</figcaption></figure></div>
 </section>
 
 <section class="section" aria-labelledby="when-title">

@@ -79,6 +79,13 @@ p { margin: 0; }
 
 /* الشريط العلوي */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255, 255, 255, .92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.promo { display: block; overflow: hidden; background: var(--green-deep); color: var(--white); text-decoration: none; font-size: 14px; font-weight: 600; }
+.promo-track { display: flex; width: max-content; animation: slide 45s linear infinite; }
+.promo:hover .promo-track, .promo:focus-visible .promo-track { animation-play-state: paused; }
+.promo-item { display: inline-flex; align-items: center; gap: 6px; padding-block: 7px; white-space: nowrap; }
+.promo-item b { color: var(--glow); font-weight: 700; }
+.promo-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--glow); opacity: .75; margin-inline: 16px; }
+@media (prefers-reduced-motion: reduce) { .promo-track { animation: none; width: auto; justify-content: center; } .promo-item + .promo-item { display: none; } .promo-item i:last-child { display: none; } }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .site .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand img { width: 42px; }
@@ -312,6 +319,7 @@ p { margin: 0; }
 <div class="site" dir="rtl" lang="ar">
 
 <header class="top">
+  <a class="promo" href="/suspension-check/" data-track="promo-bar" aria-label="عرض جهاز الهزاز: فحص أصوات السيارة بـ49 ريالاً"><span class="promo-track"><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span></span></a>
   <div class="wrap">
     <a class="brand" href="#top" aria-label="ليوبارد كار، الرئيسية">
       <img src="assets/logo-96.webp" alt="" width="160" height="146">
