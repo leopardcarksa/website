@@ -70,12 +70,14 @@ p { margin: 0; }
 /* الشريط العلوي */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255, 255, 255, .92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .promo { display: block; overflow: hidden; background: var(--green-deep); color: var(--white); text-decoration: none; font-size: 14px; font-weight: 600; }
-.promo-track { display: flex; width: max-content; animation: slide 45s linear infinite; }
+.promo-track { display: flex; width: max-content; }
+.promo-track.go { animation: slide 45s linear infinite; }
+.promo-track:not(.go) { width: auto; justify-content: center; }
+.promo-track:not(.go) .promo-item i:last-child { display: none; }
 .promo:hover .promo-track, .promo:focus-visible .promo-track { animation-play-state: paused; }
 .promo-item { display: inline-flex; align-items: center; gap: 6px; padding-block: 7px; white-space: nowrap; }
 .promo-item b { color: var(--glow); font-weight: 700; }
 .promo-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--glow); opacity: .75; margin-inline: 16px; }
-@media (prefers-reduced-motion: reduce) { .promo-track { animation: none; width: auto; justify-content: center; } .promo-item + .promo-item { display: none; } .promo-item i:last-child { display: none; } }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .site .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand img { width: 42px; }
@@ -335,7 +337,6 @@ p { margin: 0; }
 <body>
 <div class="site" dir="rtl" lang="ar">
 <header class="top">
-  <a class="promo" href="/suspension-check/" data-track="promo-bar" aria-label="عرض جهاز الهزاز: فحص أصوات السيارة بـ49 ريالاً"><span class="promo-track"><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span><span class="promo-item" aria-hidden="true"><b>عرض جهاز الهزاز</b> فحص أصوات السيارة بـ<b>49 ريالاً</b><i></i>تقف بجانب سيارتك وتشاهد الفحص بنفسك<i></i>المنطقة الصناعية بجيزان<i></i></span></span></a>
   <div class="wrap">
     <a class="brand" href="/#top" aria-label="ليوبارد كار، الرئيسية">
       <img src="/assets/logo-96.webp" alt="" width="160" height="146">
@@ -355,26 +356,13 @@ p { margin: 0; }
     <nav class="crumbs rise" aria-label="مسار الصفحة"><a href="/">ليوبارد كار</a><span>›</span><span>فحص كمبيوتر وبرمجة السيارات</span></nav>
     <h1 id="hero-title" class="rise d1">فحص كمبيوتر و<em>برمجة السيارات</em> في جيزان</h1>
     <p class="lead rise d2">نشخّص أعطال سيارتك بجهاز الفحص ونقرأ أكواد الأعطال لتحديد السبب قبل الإصلاح، ونبرمج جميع أنظمة السيارة الإلكترونية: المكينة والقير والمفاتيح والقطع الجديدة والوسائد الهوائية والشاشة. متخصصون في السيارات الصينية، ونخدم جميع السيارات.</p>
-    <ul class="proof rise d2"><li>أجهزة فحص وتشخيص حديثة.</li><li>نحدد المشكلة بدقة بدل الاحتمالات.</li><li>الفحص أمامك: تقف بجانب سيارتك وتشاهد وتسمع بنفسك.</li></ul>
+    <ul class="proof rise d2"><li>أجهزة فحص وتشخيص حديثة.</li><li>نحدد المشكلة بدقة بدل الاحتمالات.</li><li>نعرض لك نتيجة الفحص وأكواد الأعطال قبل الإصلاح.</li></ul>
     <div class="ctas rise d3">
       <a class="btn btn-white" href="#book">احجز على واتساب</a>
       <a class="btn btn-outline" href="tel:+966563122358" data-track="call-svc-computer">اتصل: <span class="num">056 312 2358</span></a>
     </div>
     <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · 9 ص – 8 م</li></ul>
   </div></div>
-</section>
-<section class="section compact" aria-labelledby="shaker-title">
-  <div class="wrap">
-    <div class="fleet shaker reveal">
-      <div>
-        <span class="tag">جهاز الهزاز</span>
-        <h2 id="shaker-title">أصوات طقطقة في سيارتك؟</h2>
-        <p>نكشف مصدرها بجهاز الهزاز لفحص أصوات السيارة، وتقف بجانب سيارتك وتشاهد الفحص وتسمع الصوت بنفسك.</p>
-        <p class="price-tag">فحص الأصوات بجهاز الهزاز: <b>49 ريالاً</b></p>
-      </div>
-      <a class="btn btn-glow" href="/suspension-check/" data-track="shaker-card">تفاصيل جهاز الهزاز</a>
-    </div>
-  </div>
 </section>
 <section class="section" aria-labelledby="when-title">
   <div class="wrap">
@@ -506,6 +494,17 @@ p { margin: 0; }
   var OPEN = { Sat: 1, Sun: 1, Mon: 1, Tue: 1, Wed: 1, Thu: 1 };
   var NAMES = { Sat: 'السبت', Sun: 'الأحد', Mon: 'الاثنين', Tue: 'الثلاثاء', Wed: 'الأربعاء', Thu: 'الخميس' };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // الشريط المتحرك: نسخة واحدة في HTML، والنسخ المكررة للحركة تُولَّد هنا ومخفية عن قارئات الشاشة ومحركات البحث
+  var promoTrack = document.querySelector('.promo-track');
+  if (promoTrack && !reduce) {
+    for (var pi = 0; pi < 7; pi++) {
+      var pc = promoTrack.firstElementChild.cloneNode(true);
+      pc.setAttribute('aria-hidden', 'true');
+      promoTrack.appendChild(pc);
+    }
+    promoTrack.classList.add('go');
+  }
 
   function riyadhNow() {
     var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Riyadh', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
