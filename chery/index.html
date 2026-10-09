@@ -191,6 +191,11 @@ p { margin: 0; }
 .fleet .tag { display: inline-block; font-size: 14px; font-weight: 700; color: var(--green-deep); background: var(--glow); padding: 3px 12px; border-radius: 999px; }
 .fleet h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; margin-block: 12px; }
 .fleet p { color: rgba(255, 255, 255, .88); max-width: 60ch; }
+.proof { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.proof li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; color: rgba(255, 255, 255, .94); }
+.proof li::before { content: ""; flex: none; width: 20px; height: 20px; margin-top: 4px; border-radius: 50%; background: var(--glow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23072C24' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat; }
+.price-tag { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 8px; width: fit-content; margin: 0; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .24); border-radius: 14px; padding: 8px 16px; font-weight: 700; color: var(--white); }
+.price-tag b { font-family: var(--display); font-size: 22px; color: var(--glow); }
 @media (max-width: 760px) { .fleet { grid-template-columns: 1fr; } }
 
 /* الأسئلة */
@@ -306,6 +311,10 @@ p { margin: 0; }
 .when li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex: none; }
 .steps { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; counter-reset: s; }
 .steps li { background: var(--white); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); counter-increment: s; display: grid; gap: 8px; }
+.svc-photo { margin: 0; justify-self: center; width: min(100%, 420px); }
+.svc-photo img { width: 100%; height: auto; border-radius: 22px; box-shadow: 0 30px 60px rgba(0, 20, 10, .45); }
+.svc-photo figcaption { color: rgba(255, 255, 255, .7); font-size: 13px; text-align: center; padding-top: 10px; }
+@media (max-width: 900px) { .svc-photo { width: min(100%, 340px); } }
 .steps li::before { content: counter(s); width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%); color: #fff; font-weight: 700; }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 </style>
@@ -440,6 +449,23 @@ p { margin: 0; }
 <script>
 (function () {
   var WA = 'https://wa.me/966563122358?text=';
+  // زائر الإعلان: رابط فيه gclid أو gbraid أو wbraid أو utm_medium=cpc، وتبقى العلامة 30 يوماً
+  var adVisitor = false;
+  try {
+    if (/[?&](gclid|gbraid|wbraid)=/.test(location.search) || /[?&]utm_medium=cpc(&|$)/.test(location.search)) localStorage.setItem('lpc_ad', String(Date.now()));
+    var adAt = parseInt(localStorage.getItem('lpc_ad') || '', 10);
+    if (adAt && Date.now() - adAt < 30 * 864e5) adVisitor = true;
+    else if (adAt) localStorage.removeItem('lpc_ad');
+  } catch (e) {}
+  var SRC = adVisitor ? '(من إعلان قوقل)' : '(من موقع ليوبارد كار)';
+  if (adVisitor) {
+    [].forEach.call(document.querySelectorAll('a[href^="https://wa.me/966563122358?text="]'), function (a) {
+      try {
+        var txt = decodeURIComponent(a.getAttribute('href').split('?text=')[1]);
+        if (txt.indexOf('(من موقع ليوبارد كار)') > -1) a.href = WA + encodeURIComponent(txt.replace('(من موقع ليوبارد كار)', SRC));
+      } catch (e) {}
+    });
+  }
   var DAYS = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   var OPEN = { Sat: 1, Sun: 1, Mon: 1, Tue: 1, Wed: 1, Thu: 1 };
   var NAMES = { Sat: 'السبت', Sun: 'الأحد', Mon: 'الاثنين', Tue: 'الثلاثاء', Wed: 'الأربعاء', Thu: 'الخميس' };
@@ -500,7 +526,7 @@ p { margin: 0; }
       bubble.style.animation = 'none'; void bubble.offsetWidth; bubble.style.animation = '';
     }
     var isParts = mode === 'parts';
-    send.href = (isParts ? PARTS_WA : WA) + encodeURIComponent(msg + '\n(من موقع ليوبارد كار)');
+    send.href = (isParts ? PARTS_WA + encodeURIComponent(msg + '\n(من موقع ليوبارد كار)') : WA + encodeURIComponent(msg + '\n' + SRC));
     send.setAttribute('data-track', isParts ? 'parts-composer' : baseTrack);
     if (bar) {
       bar.querySelector('b').textContent = isParts ? 'أوتوكور لقطع الغيار' : 'ليوبارد كار';
@@ -553,7 +579,8 @@ p { margin: 0; }
       window.gtag('event', 'lead_' + t.replace(/-/g, '_'), { method: t });
       // أحداث موحّدة تُعلَّم «أحداثاً رئيسية» في GA4 وتُستورد لإعلانات قوقل
       var k = t.indexOf('wa-') === 0 ? 'whatsapp_click' : t.indexOf('call-') === 0 ? 'phone_call_click' : t.indexOf('directions') === 0 ? 'directions_click' : t.indexOf('parts-') === 0 ? 'parts_whatsapp_click' : '';
-      if (k) window.gtag('event', k, { button: t, page_path: location.pathname });
+      if (k === 'parts_whatsapp_click') window.gtag('event', k, { button: t, page_path: location.pathname });
+      else if (k) window.gtag('event', k, { button: t, page_path: location.pathname, ad_visitor: adVisitor ? 1 : 0 });
     }
   });
 })();
