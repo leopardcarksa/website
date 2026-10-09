@@ -153,10 +153,12 @@ p { margin: 0; }
 @media (max-width: 600px) { .services { gap: 10px; } .service { padding: 16px 14px; gap: 8px; border-radius: 16px; } .service .ico { width: 44px; height: 44px; border-radius: 13px; } .service .ico svg { width: 23px; height: 23px; } .service h3 { font-size: 17px; } .service p { font-size: 13.5px; line-height: 1.65; } .service .more { font-size: 13.5px; } }
 
 /* احجز بضغطتين */
-.composer { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start; }
-.form-card { background: var(--white); border-radius: 24px; padding: clamp(20px, 4vw, 34px); box-shadow: var(--shadow); }
-.composer fieldset { border: 0; margin: 0 0 24px; padding: 0; }
-.composer legend, .composer label.lbl { font-weight: 700; margin-bottom: 12px; display: block; }
+.composer { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 28px; align-items: start; max-width: 1060px; margin-inline: auto; }
+.form-card { background: var(--white); border-radius: 24px; padding: clamp(20px, 4vw, 32px); box-shadow: var(--shadow); display: grid; gap: 26px; }
+.composer fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.composer .step-h { display: flex; align-items: center; gap: 10px; width: 100%; font-weight: 700; font-size: 17px; margin: 0 0 12px; padding: 0; }
+.composer .step-h small { font-weight: 400; font-size: 14px; color: var(--ink-2); }
+.step-n { flex: none; width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%); color: var(--white); font-family: var(--display); font-size: 15px; line-height: 1; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { position: relative; }
 .chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
@@ -171,7 +173,7 @@ p { margin: 0; }
 .phone .bar img { width: 34px; height: 34px; border-radius: 50%; background: var(--white); padding: 3px; object-fit: contain; }
 .phone .bar b { font-family: var(--display); font-size: 16px; display: block; line-height: 1.3; }
 .phone .bar small { font-size: 12px; opacity: .8; }
-.chat { padding: 22px 16px 16px; display: grid; gap: 16px; min-height: 230px; align-content: end; background-image: radial-gradient(rgba(0, 0, 0, .04) 1px, transparent 1px); background-size: 14px 14px; }
+.chat { padding: 18px 14px 14px; display: grid; gap: 16px; min-height: 170px; align-content: end; background-image: radial-gradient(rgba(0, 0, 0, .04) 1px, transparent 1px); background-size: 14px 14px; }
 .bubble { justify-self: start; max-width: 92%; background: #D9FDD3; color: #111B21; border-radius: 12px 12px 12px 4px; padding: 10px 14px 18px; line-height: 1.8; white-space: pre-line; position: relative; box-shadow: 0 1px 1px rgba(0, 0, 0, .08); animation: pop .35s ease; }
 .bubble::after { content: "✓✓"; position: absolute; left: 10px; bottom: 2px; font-size: 11px; color: #53BDEB; letter-spacing: -2px; }
 @keyframes pop { from { transform: scale(.94); opacity: .6; } to { transform: none; opacity: 1; } }
@@ -179,7 +181,16 @@ p { margin: 0; }
 .phone .send .btn { width: 100%; }
 .phone .note { font-size: 13px; color: #54656F; text-align: center; padding: 0 16px 18px; }
 @media (max-width: 880px) { .composer { grid-template-columns: 1fr; } .phone { position: static; } }
-@media (max-width: 600px) { .phone { border-width: 0; border-radius: 18px; box-shadow: var(--shadow); } .phone .bar, .phone .note { display: none; } .chat { min-height: 0; padding: 16px 12px 12px; } .phone .send { margin: 0 12px 12px; } }
+@media (max-width: 600px) { .phone { border-width: 0; border-radius: 18px; box-shadow: var(--shadow); } .phone .bar { display: none; } .chat { min-height: 0; padding: 16px 12px 12px; } .phone .send { margin: 0 12px 10px; } }
+.composer .chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
+.composer .chips.when { grid-template-columns: repeat(3, 1fr); }
+.composer .chip span { width: 100%; justify-content: center; text-align: center; min-height: 50px; padding: 8px 10px; line-height: 1.35; }
+.composer .chip input:checked + span { transform: none; }
+.composer .bubble { font-size: 14.5px; }
+.composer .phone .note { padding: 0 14px 14px; }
+.parts-link { text-align: center; margin: 22px 0 0; font-size: 15px; }
+.parts-link a { color: var(--green-dark); font-weight: 700; text-underline-offset: 4px; }
+@media (max-width: 600px) { .composer .chips { grid-template-columns: repeat(2, 1fr); } .composer .chips.when { grid-template-columns: repeat(3, 1fr); } .composer .chips.opts .chip:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 
 /* الورشة */
 .shop { display: grid; grid-template-columns: 1.3fr 1fr; gap: 44px; align-items: center; }
@@ -391,23 +402,33 @@ p { margin: 0; }
 
 <section class="section" id="book" aria-labelledby="book-title">
   <div class="wrap">
-    <div class="head reveal"><span class="eyebrow">احجز بضغطتين</span><h2 id="book-title">احجز سمكرة ودهان السيارات</h2>
-      <p>اختر ماركة سيارتك والخدمة المطلوبة، وستُفتح لك رسالة واتساب جاهزة للإرسال.</p></div>
+    <div class="head reveal">
+      <span class="eyebrow">احجز بضغطتين</span>
+      <h2 id="book-title">احجز موعد سمكرة ودهان</h2>
+      <p>اكتب نوع سيارتك واختر الخدمة، وستُفتح لك رسالة واتساب جاهزة للإرسال إلى المركز.</p>
+    </div>
     <form class="composer" id="composer" novalidate>
       <div class="form-card">
-        <fieldset><legend>نوع الطلب</legend><div class="chips"><label class="chip"><input type="radio" name="need" id="n-service" value="service" checked><span>صيانة وإصلاح</span></label><label class="chip"><input type="radio" name="need" id="n-inspect" value="inspect"><span>فحص السيارة</span></label><label class="chip"><input type="radio" name="need" id="n-parts" value="parts"><span>قطع غيار</span></label></div></fieldset>
-        <fieldset><legend>الماركة</legend><div class="chips"><label class="chip"><input type="radio" name="brand" id="b-changan" value="شانجان"><span>شانجان</span></label><label class="chip"><input type="radio" name="brand" id="b-geely" value="جيلي"><span>جيلي</span></label><label class="chip"><input type="radio" name="brand" id="b-mg" value="MG"><span>MG</span></label><label class="chip"><input type="radio" name="brand" id="b-chery" value="شيري"><span>شيري</span></label><label class="chip"><input type="radio" name="brand" id="b-jetour" value="جيتور"><span>جيتور</span></label><label class="chip"><input type="radio" name="brand" id="b-jac" value="جاك"><span>جاك</span></label><label class="chip"><input type="radio" name="brand" id="b-faw" value="فاو"><span>فاو</span></label><label class="chip"><input type="radio" name="brand" id="b-other" value="من ماركة أخرى"><span>ماركة أخرى</span></label></div></fieldset>
-        <fieldset id="svc-set"><legend>الخدمة</legend><div class="chips"><label class="chip"><input type="radio" name="service" id="s-0" value="فحص كمبيوتر"><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="service" id="s-1" value="تغيير زيت وفلاتر"><span>تغيير زيت وفلاتر</span></label><label class="chip"><input type="radio" name="service" id="s-2" value="فرامل وتعليق"><span>فرامل وتعليق</span></label><label class="chip"><input type="radio" name="service" id="s-3" value="صيانة المكيف"><span>صيانة المكيف</span></label><label class="chip"><input type="radio" name="service" id="s-4" value="كهرباء"><span>كهرباء</span></label><label class="chip"><input type="radio" name="service" id="s-5" value="برمجة أو تعديل"><span>برمجة أو تعديل</span></label><label class="chip"><input type="radio" name="service" id="s-6" value="القير"><span>القير</span></label><label class="chip"><input type="radio" name="service" id="s-7" value="المكينة"><span>المكينة</span></label><label class="chip"><input type="radio" name="service" id="s-8" value="سمكرة ودهان" checked><span>سمكرة ودهان</span></label><label class="chip"><input type="radio" name="service" id="s-9" value="جهاز الهزاز"><span>جهاز الهزاز</span></label><label class="chip"><input type="radio" name="service" id="s-unknown" value="لا أعرف سبب العطل"><span>لا أعرف سبب العطل</span></label></div></fieldset>
-        <label class="lbl" for="model">الموديل والسنة <span style="font-weight:400;color:var(--ink-2)">(اختياري)</span></label>
-        <input class="field" id="model" name="model" type="text" maxlength="40" placeholder="مثلاً: CS75 2023" autocomplete="off">
-        <div id="part-set" hidden><label class="lbl" for="part">اسم القطعة <span style="font-weight:400;color:var(--ink-2)">(اختياري)</span></label><input class="field" id="part" name="part" type="text" maxlength="60" placeholder="مثلاً: فحمات أمامية" autocomplete="off"></div>
+        <div class="step">
+          <label class="step-h" for="car"><span class="step-n">1</span>نوع سيارتك وموديلها <small>(اختياري)</small></label>
+          <input class="field" id="car" name="car" type="text" maxlength="40" placeholder="مثلاً: كامري 2020 أو شانجان CS75" autocomplete="off">
+        </div>
+        <fieldset class="step">
+          <legend class="step-h"><span class="step-n">2</span>الخدمة المطلوبة</legend>
+          <div class="chips opts"><label class="chip"><input type="radio" name="opt" id="o-0" value="سمكرة" data-svc="سمكرة السيارة" data-detail="" checked><span>سمكرة</span></label><label class="chip"><input type="radio" name="opt" id="o-1" value="دهان" data-svc="دهان السيارة" data-detail=""><span>دهان</span></label><label class="chip"><input type="radio" name="opt" id="o-2" value="آثار حادث" data-svc="إصلاح آثار حادث" data-detail=""><span>آثار حادث</span></label></div>
+        </fieldset>
+        <fieldset class="step">
+          <legend class="step-h"><span class="step-n">3</span>الموعد المفضل <small>(اختياري)</small></legend>
+          <div class="chips when"><label class="chip"><input type="radio" name="when" id="w-today" value="اليوم"><span>اليوم</span></label><label class="chip"><input type="radio" name="when" id="w-tomorrow" value="غداً"><span>غداً</span></label><label class="chip"><input type="radio" name="when" id="w-other" value="يوم آخر"><span>يوم آخر</span></label></div>
+        </fieldset>
       </div>
       <div class="phone" aria-live="polite">
         <div class="bar"><img src="/assets/logo-96.webp" alt="" width="160" height="146"><div><b>ليوبارد كار</b><small class="num">+966 56 312 2358</small></div></div>
         <div class="chat"><p class="bubble" id="bubble">السلام عليكم،
-أرغب في زيارة المركز لسمكرة ودهان السيارة لسيارتي، وأرجو إفادتي بأقرب موعد متاح.</p></div>
-        <div class="send"><a class="btn btn-green" id="send" href="https://wa.me/966563122358" target="_blank" rel="noopener" data-track="wa-svc-body">أرسل على واتساب</a></div>
-        <p class="note">تُفتح المحادثة برسالة جاهزة يمكنك تعديلها قبل الإرسال.</p>
+أرغب في زيارة المركز لسمكرة السيارة لسيارتي.
+أرجو إفادتي بأقرب موعد متاح.</p></div>
+        <div class="send"><a class="btn btn-green" id="send" href="https://wa.me/966563122358" target="_blank" rel="noopener" data-track="wa-svc-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"/></svg>أرسل على واتساب</a></div>
+        <p class="note">السبت – الخميس، 9 ص – 8 م · المنطقة الصناعية بجيزان</p>
       </div>
     </form>
   </div>
@@ -537,44 +558,24 @@ p { margin: 0; }
   var form = document.getElementById('composer');
   var bubble = document.getElementById('bubble');
   var send = document.getElementById('send');
-  var PARTS_WA = 'https://wa.me/966536790096?text=';
-  var SVC = { 'فحص كمبيوتر': 'فحص كمبيوتر السيارة', 'المكينة': 'صيانة المكينة', 'القير': 'صيانة القير', 'كهرباء': 'إصلاح كهرباء السيارة',
-    'برمجة أو تعديل': 'برمجة السيارة', 'تغيير زيت وفلاتر': 'تغيير الزيت والفلاتر', 'فرامل وتعليق': 'صيانة الفرامل ونظام التعليق',
-    'صيانة المكيف': 'صيانة مكيف السيارة', 'سمكرة ودهان': 'سمكرة ودهان السيارة',
-    'الفحص بجهاز الهزاز': 'فحص الأصوات بجهاز الهزاز (49 ريالاً)', 'جهاز الهزاز': 'فحص الأصوات بجهاز الهزاز (49 ريالاً)' };
-  var svcSet = document.getElementById('svc-set'), partSet = document.getElementById('part-set');
-  var bar = form ? form.querySelector('.phone .bar') : null;
-  var baseTrack = send ? send.getAttribute('data-track') : '';
+  // رسالة «احجز»: الخدمة والتفاصيل من بيانات زر الخطوة 2، والسيارة كما كتبها العميل، والموعد المفضل إن اختاره
   function compose() {
-    var brand = form.querySelector('input[name="brand"]:checked');
-    var service = form.querySelector('input[name="service"]:checked');
-    var need = form.querySelector('input[name="need"]:checked');
-    var mode = need ? need.value : 'service';
-    var model = document.getElementById('model').value.trim();
-    var partEl = document.getElementById('part'), part = partEl ? partEl.value.trim() : '';
-    // السيارة: ما اختاره العميل فقط (أو ماركة الصفحة في صفحات الماركات)، و«من ماركة أخرى» لا تُكتب
-    var car = brand && brand.id !== 'b-other' ? brand.value : (form.getAttribute('data-brand') || '');
-    car = (car + (model ? ' ' + model : '')).trim();
+    var opt = form.querySelector('input[name="opt"]:checked');
+    var when = form.querySelector('input[name="when"]:checked');
+    var carEl = document.getElementById('car'), car = carEl ? carEl.value.trim() : '';
     var mine = 'سيارتي' + (car ? ' ' + car : '');
-    if (svcSet) svcSet.hidden = mode !== 'service';
-    if (partSet) partSet.hidden = mode !== 'parts';
-    var body;
-    if (mode === 'parts') body = 'أرغب في الاستفسار عن توفر قطعة غيار ل' + mine + (part ? ': ' + part : '') + '.';
-    else if (mode === 'inspect') body = 'أرغب في زيارة المركز لفحص ' + mine + '، وأرجو إفادتي بأقرب موعد متاح.';
-    else if (service && service.id === 's-unknown') body = 'في ' + mine + ' عطل لا أعرف سببه، وأرغب في زيارة المركز لفحصها وتحديد السبب. أرجو إفادتي بأقرب موعد متاح.';
-    else body = 'أرغب في زيارة المركز ل' + (service && SVC[service.value] ? SVC[service.value] + ' ل' : '') + mine + '، وأرجو إفادتي بأقرب موعد متاح.';
-    var msg = 'السلام عليكم،\n' + body;
+    var first = opt && opt.getAttribute('data-kind') === 'unknown'
+      ? 'في ' + mine + ' عطل لا أعرف سببه، وأرغب في زيارة المركز لفحصها وتحديد السبب.'
+      : 'أرغب في زيارة المركز ل' + (opt ? opt.getAttribute('data-svc') : 'فحص السيارة') + ' ل' + mine + '.';
+    var details = [];
+    if (opt && opt.getAttribute('data-detail')) details.push(opt.getAttribute('data-detail'));
+    if (when) details.push('الموعد المفضل: ' + when.value);
+    var msg = 'السلام عليكم،\n' + first + '\n' + (details.length ? details.join(' · ') : 'أرجو إفادتي بأقرب موعد متاح.');
     if (bubble.textContent !== msg) {
       bubble.textContent = msg;
       bubble.style.animation = 'none'; void bubble.offsetWidth; bubble.style.animation = '';
     }
-    var isParts = mode === 'parts';
-    send.href = (isParts ? PARTS_WA + encodeURIComponent(msg + '\n(من موقع ليوبارد كار)') : WA + encodeURIComponent(msg + '\n' + SRC));
-    send.setAttribute('data-track', isParts ? 'parts-composer' : baseTrack);
-    if (bar) {
-      bar.querySelector('b').textContent = isParts ? 'أوتوكور لقطع الغيار' : 'ليوبارد كار';
-      bar.querySelector('small').textContent = isParts ? '+966 53 679 0096' : '+966 56 312 2358';
-    }
+    send.href = WA + encodeURIComponent(msg + '\n' + SRC);
   }
   if (form) {
     form.addEventListener('change', compose);
