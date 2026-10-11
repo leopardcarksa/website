@@ -422,7 +422,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
       <h2 id="book-title">احجز موعد فحص الكمبيوتر أو البرمجة</h2>
       <p>اكتب نوع سيارتك واختر الخدمة، وستُفتح لك رسالة واتساب جاهزة للإرسال إلى المركز.</p>
     </div>
-    <form class="composer" id="composer" novalidate data-fallback="فحص السيارة">
+    <form class="composer" id="composer" novalidate data-fallback="فحص المشكلة">
       <div class="form-card">
         <div class="step">
           <label class="step-h" for="car"><span class="step-n">1</span>نوع سيارتك وموديلها <small>(اختياري)</small></label>
@@ -430,7 +430,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
         </div>
         <fieldset class="step">
           <legend class="step-h"><span class="step-n">2</span>الخدمة المطلوبة</legend>
-          <div class="chips opts"><label class="chip"><input type="radio" name="opt" id="o-0" value="فحص كمبيوتر" data-svc="فحص كمبيوتر السيارة" data-detail="" checked><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="opt" id="o-1" value="لمبة في الطبلون" data-svc="فحص لمبة في الطبلون" data-detail=""><span>لمبة في الطبلون</span></label><label class="chip"><input type="radio" name="opt" id="o-2" value="برمجة" data-svc="برمجة السيارة" data-detail=""><span>برمجة</span></label><label class="chip"><input type="radio" name="opt" id="o-3" value="غير ذلك" data-svc="فحص السيارة" data-detail=""><span>غير ذلك</span></label></div>
+          <div class="chips opts"><label class="chip"><input type="radio" name="opt" id="o-0" value="فحص كمبيوتر" data-svc="فحص الكمبيوتر" data-detail="" checked><span>فحص كمبيوتر</span></label><label class="chip"><input type="radio" name="opt" id="o-1" value="لمبة في الطبلون" data-svc="فحص لمبة في الطبلون" data-detail=""><span>لمبة في الطبلون</span></label><label class="chip"><input type="radio" name="opt" id="o-2" value="برمجة" data-svc="عمل برمجة" data-detail=""><span>برمجة</span></label><label class="chip"><input type="radio" name="opt" id="o-3" value="غير ذلك" data-svc="فحص المشكلة" data-detail=""><span>غير ذلك</span></label></div>
         </fieldset>
         <fieldset class="step">
           <legend class="step-h"><span class="step-n">3</span>الموعد المفضل <small>(اختياري)</small></legend>
@@ -440,7 +440,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
       <div class="phone" aria-live="polite">
         <div class="bar"><img src="/assets/logo-96.webp" alt="" width="160" height="146"><div><b>ليوبارد كار</b><small class="num">+966 56 312 2358</small></div></div>
         <div class="chat"><p class="bubble" id="bubble">السلام عليكم،
-أرغب في زيارة المركز لفحص كمبيوتر السيارة لسيارتي.
+أرغب في زيارة المركز لفحص الكمبيوتر لسيارتي.
 أرجو إفادتي بأقرب موعد متاح.</p></div>
         <div class="send"><a class="btn btn-green" id="send" href="https://wa.me/966563122358" target="_blank" rel="noopener" data-track="wa-svc-computer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"/></svg>أرسل على واتساب</a></div>
         <p class="note">السبت – الخميس، 9 ص – 8 م · المنطقة الصناعية بجيزان</p>
@@ -486,6 +486,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
           <li><a href="/body-paint/">سمكرة ودهان</a></li>
           <li><a href="/suspension-check/">جهاز الهزاز</a></li>
           <li><a href="/gearbox-engine/">القير والمكينة</a></li>
+          <li><a href="/car-ac/">صيانة المكيف</a></li>
           <li><a href="/#book">احجز موعدك</a></li>
           <li><a href="/#faq-title">الأسئلة الشائعة</a></li>
           <li><a href="/#visit">موقع المركز</a></li>
