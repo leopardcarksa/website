@@ -474,6 +474,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
           <li><a href="/suspension-check/">جهاز الهزاز</a></li>
           <li><a href="/gearbox-engine/">القير والمكينة</a></li>
           <li><a href="/car-ac/">صيانة المكيف</a></li>
+          <li><a href="/used-car-inspection/">فحص قبل الشراء</a></li>
           <li><a href="/#book">احجز موعدك</a></li>
           <li><a href="/#faq-title">الأسئلة الشائعة</a></li>
           <li><a href="/#visit">موقع المركز</a></li>
@@ -589,7 +590,9 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
     var mine = 'سيارتي' + (car ? ' ' + car : '');
     // بلا اختيار: خدمة الصفحة البديلة (data-fallback)، وإلا «لصيانة سيارتي»
     var svc = opt ? opt.getAttribute('data-svc') : (form.getAttribute('data-fallback') || '');
-    var first = opt && opt.getAttribute('data-kind') === 'unknown'
+    var lead = form.getAttribute('data-lead');
+    var first = lead ? lead + (car ? ': ' + car : '') + '.'
+      : opt && opt.getAttribute('data-kind') === 'unknown'
       ? 'في ' + mine + ' عطل لا أعرف سببه، وأرغب في زيارة المركز لفحصها وتحديد السبب.'
       : svc ? 'أرغب في زيارة المركز ل' + svc + ' ل' + mine + '.' : 'أرغب في زيارة المركز لصيانة ' + mine + '.';
     var details = [];
