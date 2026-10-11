@@ -357,6 +357,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 .toc a { text-decoration: none; }
 .doc .en { margin-top: 44px; padding-top: 4px; border-top: 1px solid var(--line); text-align: left; }
 @media (max-width: 700px) { .toc ol { columns: 1; } }
+.hero-sub { font-size: clamp(18px, 2.4vw, 22px); font-weight: 600; color: rgba(255, 255, 255, .92); margin: -6px 0 0; }
 </style>
 <style>html,body{margin:0}</style>
 </head>
@@ -460,7 +461,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
   <div class="wrap"><div class="head reveal"><h2>الماركات التي نتخصص فيها</h2></div>
     <div class="other"><a href="/changan/">صيانة شانجان</a><a href="/geely/">صيانة جيلي</a><a href="/mg/">صيانة MG</a><a href="/chery/">صيانة شيري</a><a href="/jetour/">صيانة جيتور</a><a href="/jac/">صيانة جاك</a><a href="/faw/">صيانة فاو</a></div>
     <div class="head reveal" style="margin-top:36px"><h2>خدمات أخرى</h2></div>
-    <div class="other"><a href="/computer-programming/">فحص كمبيوتر وبرمجة السيارات</a><a href="/gearbox-engine/">صيانة القير والمكينة</a><a href="/suspension-check/">جهاز الهزاز</a><a href="/body-paint/">سمكرة ودهان السيارات</a><a href="/car-ac/">صيانة مكيف السيارة</a><a href="/used-car-inspection/">فحص السيارة المستعملة قبل الشراء</a><a href="/">جميع خدمات المركز</a></div></div>
+    <div class="other"><a href="/computer-programming/">فحص كمبيوتر وبرمجة السيارات</a><a href="/gearbox-engine/">صيانة القير والمكينة</a><a href="/suspension-check/">جهاز الهزاز</a><a href="/body-paint/">سمكرة ودهان السيارات</a><a href="/car-ac/">صيانة مكيف السيارة</a><a href="/used-car-inspection/">فحص شامل للسيارة</a><a href="/">جميع خدمات المركز</a></div></div>
 </section>
 </main>
 <footer class="foot">
@@ -487,7 +488,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
           <li><a href="/suspension-check/">جهاز الهزاز</a></li>
           <li><a href="/gearbox-engine/">القير والمكينة</a></li>
           <li><a href="/car-ac/">صيانة المكيف</a></li>
-          <li><a href="/used-car-inspection/">فحص قبل الشراء</a></li>
+          <li><a href="/used-car-inspection/">فحص شامل للسيارة</a></li>
           <li><a href="/#book">احجز موعدك</a></li>
           <li><a href="/#faq-title">الأسئلة الشائعة</a></li>
           <li><a href="/#visit">موقع المركز</a></li>
@@ -603,8 +604,10 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
     var mine = 'سيارتي' + (car ? ' ' + car : '');
     // بلا اختيار: خدمة الصفحة البديلة (data-fallback)، وإلا «لصيانة سيارتي»
     var svc = opt ? opt.getAttribute('data-svc') : (form.getAttribute('data-fallback') || '');
-    var lead = form.getAttribute('data-lead');
-    var first = lead ? lead + (car ? ': ' + car : '') + '.'
+    // رسالة خاصة: من الخيار المختار (data-lead) أو من المربع نفسه، مع الفاصل قبل السيارة (data-sep)
+    var src = opt && opt.getAttribute('data-lead') ? opt : form;
+    var lead = src.getAttribute('data-lead'), sep = src.getAttribute('data-sep') || ': ';
+    var first = lead ? lead + (car ? sep + car : '') + '.'
       : opt && opt.getAttribute('data-kind') === 'unknown'
       ? 'في ' + mine + ' عطل لا أعرف سببه، وأرغب في زيارة المركز لفحصها وتحديد السبب.'
       : svc ? 'أرغب في زيارة المركز ل' + svc + ' ل' + mine + '.' : 'أرغب في زيارة المركز لصيانة ' + mine + '.';
