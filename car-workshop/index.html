@@ -362,6 +362,8 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 @media (max-width: 600px) { .hero .ctas.ctas-3 { display: grid; grid-template-columns: 1fr; gap: 10px; } .ctas-3 .btn { justify-content: center; width: 100%; } }
 /* صفحة هبوط الإعلان: الأزرار الثلاثة فوق الطي حتى في الجوالات القصيرة */
 @media (max-width: 600px) { .hero.brand-hero.hero-landing { padding-top: 24px; } .hero-landing .crumbs { display: none; } .hero.hero-landing h1 { font-size: 28px; } .hero.hero-landing .ctas.ctas-3 { gap: 8px; } .hero-landing .ctas-3 .btn { min-height: 48px; } }
+.hero-note { font-size: 14px; color: rgba(255, 255, 255, .85); margin: 0; }
+.services.with-links .more { display: inline-flex; align-items: center; min-height: 44px; }
 </style>
 <style>html,body{margin:0}</style>
 </head>
@@ -393,6 +395,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
       <a class="btn btn-outline" href="tel:+966563122358" data-track="call-svc-workshop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>اتصل: <span class="num">056 312 2358</span></a>
       <a class="btn btn-outline" href="#book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"/></svg>واتساب</a>
     </div>
+    <p class="hero-note rise d3">قريب منك في المنطقة الصناعية بجيزان: اضغط «الاتجاهات» وتوصلك خرائط قوقل من موقعك.</p>
     <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · 9 ص – 8 م</li><li>الجمعة إجازة</li></ul>
   </div></div>
 </section>
@@ -406,7 +409,14 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 <section class="section tint" aria-labelledby="svc-title">
   <div class="wrap">
     <div class="head reveal"><span class="eyebrow">ماذا نقدّم</span><h2 id="svc-title">أقسام الورشة</h2></div>
-    <div class="services"><article class="service reveal"><h3>فحص أصوات السيارة</h3><p>جهاز الهزاز يُظهر مصدر الطقطقة وأنت تشاهد، بـ49 ريالاً.</p><a class="more" href="/suspension-check/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>فحص الكمبيوتر والبرمجة</h3><p>قراءة أكواد الأعطال وتحديد السبب بـ49 ريالاً، ثم الإصلاح.</p><a class="more" href="/computer-programming/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>كهرباء السيارات</h3><p>البطارية والدينمو والتشغيل والأسلاك والأنوار.</p><a class="more" href="/auto-electrical/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>المكينة والقير</h3><p>فحص الأعطال وإصلاحها.</p><a class="more" href="/gearbox-engine/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>السمكرة والدهان</h3><p>السمكرة والدهان وشفط الصدمات وتعديلها.</p><a class="more" href="/body-paint/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>تكييف السيارات</h3><p>فحص التبريد وإصلاح أعطال المكيف.</p><a class="more" href="/car-ac/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>الفحص الشامل</h3><p>عرض لفترة محدودة: 250 ريالاً لجميع السيارات، مع تقرير PDF.</p><a class="more" href="/used-car-inspection/">التفاصيل <span aria-hidden="true">←</span></a></article></div>
+    <div class="services with-links"><article class="service reveal"><h3>فحص أصوات السيارة</h3><p>جهاز الهزاز يُظهر مصدر الطقطقة وأنت تشاهد، بـ49 ريالاً.</p><a class="more" href="/suspension-check/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>فحص الكمبيوتر والبرمجة</h3><p>قراءة أكواد الأعطال وتحديد السبب بـ49 ريالاً، ثم الإصلاح.</p><a class="more" href="/computer-programming/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>كهرباء السيارات</h3><p>البطارية والدينمو والتشغيل والأسلاك والأنوار.</p><a class="more" href="/auto-electrical/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>المكينة والقير</h3><p>فحص الأعطال وإصلاحها.</p><a class="more" href="/gearbox-engine/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>السمكرة والدهان</h3><p>السمكرة والدهان وشفط الصدمات وتعديلها.</p><a class="more" href="/body-paint/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>تكييف السيارات</h3><p>فحص التبريد وإصلاح أعطال المكيف.</p><a class="more" href="/car-ac/">التفاصيل <span aria-hidden="true">←</span></a></article><article class="service reveal"><h3>الفحص الشامل</h3><p>عرض لفترة محدودة: 250 ريالاً لجميع السيارات، مع تقرير PDF.</p><a class="more" href="/used-car-inspection/">التفاصيل <span aria-hidden="true">←</span></a></article></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="head reveal"><h2 id="why-title">لماذا ليوبارد كار؟</h2></div>
+    <ul class="when"><li class="reveal">أجهزة فحص وتشخيص حديثة: نحدد المشكلة بدقة بدل الاحتمالات، فلا تدفع على التخمين.</li><li class="reveal">الفحص أمامك وكل شيء واضح: تشاهد فحص سيارتك بعينك.</li><li class="reveal">التكلفة قبل أي إصلاح، ولا نبدأ إلا بموافقتك.</li><li class="reveal">فحص وإصلاح في مكان واحد: ميكانيكا وكهرباء وسمكرة ودهان وتكييف.</li></ul>
   </div>
 </section>
 
@@ -457,17 +467,11 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 
 <section class="section tint" aria-labelledby="faq-title">
   <div class="wrap">
-    <div class="head reveal"><span class="eyebrow">استفسارات</span><h2 id="faq-title">أسئلة عن مركز صيانة سيارات</h2></div>
+    <div class="head reveal"><span class="eyebrow">استفسارات</span><h2 id="faq-title">أسئلة شائعة</h2></div>
     <div class="faq"><details class="reveal"><summary>هل لديكم ورشة ميكانيكا وكهرباء في المركز؟</summary><p>نعم. ورشة مجهزة بأجهزة فحص حديثة، فيها ميكانيكي وكهربائي سيارات، وتصليح السمكرة والدهان والتكييف لجميع السيارات.</p></details><details class="reveal"><summary>هل تخدمون جميع أنواع السيارات؟</summary><p>نعم. نخدم جميع السيارات: اليابانية والكورية والأمريكية والصينية وغيرها.</p></details><details class="reveal"><summary>كم تكلفة الفحص؟</summary><p>فحص أصوات السيارة بجهاز الهزاز 49 ريالاً، وفحص الكمبيوتر 49 ريالاً، والفحص الشامل 250 ريالاً (عرض لفترة محدودة).</p></details><details class="reveal"><summary>متى أعرف تكلفة الإصلاح؟</summary><p>بعد الفحص وقبل أي إصلاح. نحدد العطل أولاً، ونعطيك التكلفة، ولا نبدأ إلا بموافقتك.</p></details><details class="reveal"><summary>ما أوقات الدوام؟</summary><p>من السبت إلى الخميس، من 9 صباحاً حتى 8 مساءً. الجمعة إجازة.</p></details><details class="reveal"><summary>أين موقعكم؟</summary><p>في المنطقة الصناعية بجيزان، 7671 شارع جابر بن حيان. <a href="https://www.google.com/maps/dir/?api=1&amp;destination=16.8367911,42.6204328" target="_blank" rel="noopener" data-track="directions-faq-workshop">الاتجاهات إلى المركز</a></p></details><details class="reveal"><summary>هل يتوفر التقسيط؟</summary><p>نعم، عبر تابي وتمارا.</p></details></div>
   </div>
 </section>
 
-<section class="section" aria-label="الماركات وخدمات أخرى">
-  <div class="wrap"><div class="head reveal"><h2>الماركات التي نتخصص فيها</h2></div>
-    <div class="other"><a href="/changan/">صيانة شانجان</a><a href="/geely/">صيانة جيلي</a><a href="/mg/">صيانة MG</a><a href="/chery/">صيانة شيري</a><a href="/jetour/">صيانة جيتور</a><a href="/jac/">صيانة جاك</a><a href="/faw/">صيانة فاو</a></div>
-    <div class="head reveal" style="margin-top:36px"><h2>خدمات أخرى</h2></div>
-    <div class="other"><a href="/computer-programming/">فحص كمبيوتر وبرمجة السيارات</a><a href="/auto-electrical/">كهربائي سيارات</a><a href="/gearbox-engine/">صيانة القير والمكينة</a><a href="/suspension-check/">جهاز الهزاز</a><a href="/body-paint/">سمكرة ودهان السيارات</a><a href="/car-ac/">صيانة مكيف السيارة</a><a href="/used-car-inspection/">فحص شامل للسيارة</a><a href="/">جميع خدمات المركز</a></div></div>
-</section>
 </main>
 <footer class="foot">
   <div class="wrap">
