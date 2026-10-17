@@ -149,7 +149,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 .service .ico svg { width: 28px; height: 28px; }
 .service h3 { font-size: 20px; font-weight: 700; }
 .service p { color: var(--ink-2); font-size: 15px; line-height: 1.75; }
-.service .more { font-weight: 700; font-size: 15px; color: var(--green-dark); text-decoration: none; justify-self: start; }
+.service .more { font-weight: 700; font-size: 15px; color: var(--green-dark); text-decoration: none; justify-self: start; display: inline-flex; align-items: center; min-height: 46px; }
 .service .more:hover { color: var(--green); }
 @media (max-width: 980px) { .services { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .services { gap: 10px; } .service { padding: 16px 14px; gap: 8px; border-radius: 16px; } .service .ico { width: 44px; height: 44px; border-radius: 13px; } .service .ico svg { width: 23px; height: 23px; } .service h3 { font-size: 17px; } .service p { font-size: 13.5px; line-height: 1.65; } .service .more { font-size: 13.5px; } }
@@ -229,6 +229,7 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 .faq summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--green-soft); color: var(--green-dark); font-size: 20px; line-height: 1; transition: transform .25s ease, background-color .25s; }
 .faq details[open] summary::after { transform: rotate(45deg); background: var(--glow); }
 .faq details p { color: var(--ink-2); padding-bottom: 18px; }
+.faq details p a { display: inline-flex; align-items: center; min-height: 46px; font-weight: 700; color: var(--green-dark); }
 
 /* الموقع */
 .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
@@ -363,7 +364,17 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 /* صفحة هبوط الإعلان: الأزرار الثلاثة فوق الطي حتى في الجوالات القصيرة */
 @media (max-width: 600px) { .hero.brand-hero.hero-landing { padding-top: 24px; } .hero-landing .crumbs { display: none; } .hero.hero-landing h1 { font-size: 28px; } .hero.hero-landing .ctas.ctas-3 { gap: 8px; } .hero-landing .ctas-3 .btn { min-height: 48px; } }
 .hero-note { font-size: 14px; color: rgba(255, 255, 255, .85); margin: 0; }
-.services.with-links .more { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 600px) {
+  .hero-landing .hero-copy > * { order: 10; }
+  .hero-landing .hero-copy > h1 { order: 1; }
+  .hero-landing .hero-copy > .hero-sub { order: 2; }
+  .hero-landing .hero-copy > .ctas { order: 3; }
+  .hero-landing .hero-copy > .price-tag { order: 4; }
+  .hero-landing .hero-copy > .hero-note { order: 5; }
+  .hero-landing .hero-copy > .lead { order: 6; }
+  .hero-landing .hero-copy > .proof { order: 7; }
+  .hero-landing .hero-copy > .tags { order: 8; }
+}
 </style>
 <style>html,body{margin:0}</style>
 </head>
@@ -384,17 +395,19 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
   </div>
 </header>
 <main id="top">
-<section class="hero brand-hero" aria-labelledby="hero-title">
+<section class="hero brand-hero hero-landing" aria-labelledby="hero-title">
   <div class="wrap"><div class="hero-copy">
     <nav class="crumbs rise" aria-label="مسار الصفحة"><a href="/">ليوبارد كار</a><span>›</span><span>صيانة مكيف السيارة</span></nav>
     <h1 id="hero-title" class="rise d1"><em>صيانة مكيف</em> السيارة في جيزان</h1>
     <p class="lead rise d2">نحدد سبب ضعف التبريد بدقة قبل الإصلاح، بدل تعبئة الفريون على الاحتمال. لجميع أنواع السيارات.</p>
-    <ul class="proof rise d2"><li>أجهزة فحص وتشخيص حديثة.</li><li>نحدد المشكلة بدقة بدل الاحتمالات.</li><li>نقيس التبريد ونحدد سبب الضعف أمامك قبل الإصلاح.</li></ul>
-    <div class="ctas rise d3">
-      <a class="btn btn-white" href="#book">احجز على واتساب</a>
-      <a class="btn btn-outline" href="tel:+966563122358" data-track="call-svc-ac">اتصل: <span class="num">056 312 2358</span></a>
+    <div class="ctas rise d3 ctas-3">
+      <a class="btn btn-white" href="https://www.google.com/maps/dir/?api=1&amp;destination=16.8367911,42.6204328" target="_blank" rel="noopener" data-track="directions-svc-ac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>الاتجاهات إلى المركز</a>
+      <a class="btn btn-outline" href="tel:+966563122358" data-track="call-svc-ac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>اتصل: <span class="num">056 312 2358</span></a>
+      <a class="btn btn-outline" href="#book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"/></svg>احجز على واتساب</a>
     </div>
-    <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · 9 ص – 8 م</li></ul>
+    <p class="hero-note rise d3">قريب منك في المنطقة الصناعية بجيزان: اضغط «الاتجاهات» وتوصلك خرائط قوقل من موقعك.</p>
+    <ul class="proof rise d2"><li>أجهزة فحص وتشخيص حديثة.</li><li>نحدد المشكلة بدقة بدل الاحتمالات.</li><li>نقيس التبريد ونحدد سبب الضعف أمامك قبل الإصلاح.</li></ul>
+    <ul class="tags rise d4"><li class="hot">التقسيط متاح عبر تابي وتمارا</li><li>المنطقة الصناعية، جيزان</li><li>السبت – الخميس · 9 ص – 8 م</li><li>الجمعة إجازة</li></ul>
   </div></div>
 </section>
 <section class="section" aria-labelledby="when-title">
@@ -408,6 +421,13 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
   <div class="wrap">
     <div class="head reveal"><span class="eyebrow">ماذا نقدّم</span><h2 id="svc-title">صيانة مكيف السيارة في ليوبارد كار</h2></div>
     <div class="services"><article class="service reveal"><h3>فحص المكيف</h3><p>قياس التبريد وضغط الفريون، وتحديد سبب الضعف قبل الإصلاح.</p></article><article class="service reveal"><h3>كشف التسريب وإصلاحه</h3><p>نحدد مكان تسريب الفريون ونصلحه، ثم نعبّئ الكمية الصحيحة.</p></article><article class="service reveal"><h3>الكمبروسر والمراوح</h3><p>إصلاح أعطال الكمبروسر ومراوح التبريد وكهرباء المكيف.</p></article></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="head reveal"><h2 id="why-title">لماذا ليوبارد كار؟</h2></div>
+    <ul class="when"><li class="reveal">أجهزة فحص وتشخيص حديثة: نحدد المشكلة بدقة بدل الاحتمالات، فلا تدفع على التخمين.</li><li class="reveal">الفحص أمامك وكل شيء واضح: تشاهد فحص سيارتك بعينك.</li><li class="reveal">التكلفة قبل أي إصلاح، ولا نبدأ إلا بموافقتك.</li><li class="reveal">فحص وإصلاح في مكان واحد: ميكانيكا وكهرباء وسمكرة ودهان وتكييف.</li></ul>
   </div>
 </section>
 
@@ -458,15 +478,13 @@ h2[id] { scroll-margin-top: calc(var(--anchor-offset, 160px) + 44px); }
 
 <section class="section tint" aria-labelledby="faq-title">
   <div class="wrap">
-    <div class="head reveal"><span class="eyebrow">استفسارات</span><h2 id="faq-title">أسئلة عن صيانة مكيف السيارة</h2></div>
+    <div class="head reveal"><span class="eyebrow">استفسارات</span><h2 id="faq-title">أسئلة شائعة</h2></div>
     <div class="faq"><details class="reveal"><summary>كم تكلفة صيانة مكيف السيارة؟</summary><p>تُحدَّد التكلفة بعد فحص المكيف وتحديد سبب المشكلة. تواصل معنا عبر واتساب لترتيب موعد الفحص.</p></details><details class="reveal"><summary>هل تكفي تعبئة الفريون إذا كان المكيف لا يبرد؟</summary><p>ليس دائماً. قد يكون ضعف التبريد بسبب تسريب، أو عطل في الكمبروسر أو المراوح، وتعبئة الفريون مع وجود تسريب حل مؤقت. لذلك نفحص المكيف ونحدد السبب أولاً.</p></details><details class="reveal"><summary>لماذا يبرد المكيف أثناء المشي ويضعف عند الوقوف؟</summary><p>من أسبابه الشائعة ضعف مراوح التبريد، أو انسداد المكثف، أو نقص الفريون. نحدد السبب بالفحص قبل أي إصلاح.</p></details><details class="reveal"><summary>هل يتوفر التقسيط؟</summary><p>نعم، يتوفر التقسيط عبر تابي وتمارا.</p></details><details class="reveal"><summary>أين يقع المركز؟</summary><p>في المنطقة الصناعية بجيزان، 7671 شارع جابر بن حيان. العنوان الوطني المختصر: GASA7671.</p></details></div>
   </div>
 </section>
 
-<section class="section" aria-label="الماركات وخدمات أخرى">
-  <div class="wrap"><div class="head reveal"><h2>الماركات التي نتخصص فيها</h2></div>
-    <div class="other"><a href="/changan/">صيانة شانجان</a><a href="/geely/">صيانة جيلي</a><a href="/mg/">صيانة MG</a><a href="/chery/">صيانة شيري</a><a href="/jetour/">صيانة جيتور</a><a href="/jac/">صيانة جاك</a><a href="/faw/">صيانة فاو</a></div>
-    <div class="head reveal" style="margin-top:36px"><h2>خدمات أخرى</h2></div>
+<section class="section" aria-label="خدمات أخرى">
+  <div class="wrap"><div class="head reveal"><h2>خدمات أخرى</h2></div>
     <div class="other"><a href="/computer-programming/">فحص كمبيوتر وبرمجة السيارات</a><a href="/auto-electrical/">كهربائي سيارات</a><a href="/gearbox-engine/">صيانة القير والمكينة</a><a href="/suspension-check/">جهاز الهزاز</a><a href="/body-paint/">سمكرة ودهان السيارات</a><a href="/used-car-inspection/">فحص شامل للسيارة</a><a href="/">جميع خدمات المركز</a></div></div>
 </section>
 </main>
